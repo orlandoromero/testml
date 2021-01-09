@@ -3,16 +3,23 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
+import { DetailProductComponent } from './components/detail-product/detail-product.component';
+import {ButtonModule} from 'primeng/button';
+import {DataViewModule} from 'primeng/dataview';
+import {FocusTrapModule} from 'primeng/focustrap';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    DetailProductComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ButtonModule,
+    DataViewModule,
+    FocusTrapModule
   ],
   providers: [],
   bootstrap: [AppComponent]
