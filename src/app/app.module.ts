@@ -4,10 +4,11 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DetailProductComponent } from './components/detail-product/detail-product.component';
+import { SearchResultsComponent } from './components/search-results/search-results.component';
 import {ButtonModule} from 'primeng/button';
 import {DataViewModule} from 'primeng/dataview';
 import {FocusTrapModule} from 'primeng/focustrap';
-import { SearchResultsComponent } from './components/search-results/search-results.component';
+import {InputTextModule} from 'primeng/inputtext';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { SearchResultsComponent } from './components/search-results/search-resul
     AppRoutingModule,
     ButtonModule,
     DataViewModule,
-    FocusTrapModule
+    FocusTrapModule,
+    InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]

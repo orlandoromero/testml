@@ -1,28 +1,39 @@
-<p-dataView #dv [value]="products" [paginator]="true" [rows]="2" filterBy="desc">
-  <p-header>
-      <img src="https://blog.saleslayer.com/hubfs/mercado-libre-logo.jpg" alt="logo-ml" width="40" height="30">
-    <input type="search" pInputText placeholder="Search product" (input)="dv.filter($event.target.value)">
-    <span class="p-input-icon-left p-mb-6 p-mb-md-6">
-      <i class="pi pi-search"></i>
-    </span>
-  </p-header>
-  <ng-template let-product pTemplate="listItem">
-    <div class="p-col-12">
-        <div class="product-list-item">
-            <img class="p-col-3" width="100" [src]="product.pic"/>
-            <div class="product-list-detail">
-                <div class="p-col-2" class="product-description">{{product.desc}}</div>
-            </div>
-            <div class="product-list-action">
-                <span class="p-col-2" class="product-price">{{product.price}}</span>
-            </div>
-        </div>
+<!--
+<div class="toolbar" role="banner">
+  <img
+    width="60"
+    alt="ML Logo"
+    src="https://www.expoknews.com/wp-content/uploads/2020/03/1200px-MercadoLibre.svg-1-810x409.png"
+  />
+  <input class="search" type="search" pInputText placeholder="Search product">
+</div>
+
+<div class="content" role="main">-->
+
+  <!-------------------------------------------------------------------------------------------------------------->
+<div class="yellow-toolbar">
+  <div class="p-grid p-fluid">
+    <div class="p-col-12 p-md-6 p-lg-3"></div>
+    <div class="p-col-12 p-md-6 p-lg-3">
+      <div class="p-text-center">
+        <img
+        style="width:auto; height:55px; object-fit:contain;"
+        src="https://www.expoknews.com/wp-content/uploads/2020/03/1200px-MercadoLibre.svg-1-810x409.png"
+      />
+      </div>
     </div>
-  </ng-template>
-  <ng-template pTemplate="paginatorleft" let-state>
-  </ng-template>
-  <ng-template pTemplate="paginatorright">
-  </ng-template>
-</p-dataView>
+    <div class="p-col-12 p-md-6 p-lg-3">
+      <div class="p-text-center">
+        <span class="p-input-icon-left">
+          <div class="p-inputgroup">
+          <input type="text" pInputText placeholder="Search product">
+          <button type="button" pButton pRipple icon="pi pi-search" styleClass="p-button-warn" [routerLink]="['/search-results']"></button>
+        </div>   
+      </span>
+      </div>
+    </div>
+    <div class="p-col-12 p-md-6 p-lg-3"></div>
+  </div>
+</div>
 
 <router-outlet></router-outlet>
