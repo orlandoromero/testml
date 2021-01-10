@@ -7,12 +7,14 @@ import { DetailProductComponent } from './components/detail-product/detail-produ
 import {ButtonModule} from 'primeng/button';
 import {DataViewModule} from 'primeng/dataview';
 import {FocusTrapModule} from 'primeng/focustrap';
+import { SearchResultsComponent } from './components/search-results/search-results.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DetailProductComponent
+    DetailProductComponent,
+    SearchResultsComponent
   ],
   imports: [
     BrowserModule,

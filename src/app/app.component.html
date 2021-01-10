@@ -1,33 +1,28 @@
-
-<p-dataView #dv [value]="product" [paginator]="true" [rows]="2" filterBy="desc">
+<p-dataView #dv [value]="products" [paginator]="true" [rows]="2" filterBy="desc">
   <p-header>
-    <img src="https://blog.saleslayer.com/hubfs/mercado-libre-logo.jpg" alt="logo-ml" width="40" height="30">
+      <img src="https://blog.saleslayer.com/hubfs/mercado-libre-logo.jpg" alt="logo-ml" width="40" height="30">
     <input type="search" pInputText placeholder="Search product" (input)="dv.filter($event.target.value)">
-    <!--<p-dataViewLayoutOptions></p-dataViewLayoutOptions>-->
-    <span class="p-input-icon-left p-mb-2 p-mb-md-4">
+    <span class="p-input-icon-left p-mb-6 p-mb-md-6">
       <i class="pi pi-search"></i>
     </span>
   </p-header>
-  <ng-template let-pro pTemplate="listItem">
-    <div>
-      <img width="50" height="50" [src]="pro.pic" />
-      ${{pro.price}}
-      <br> {{pro.desc}}
-    </div>
-  </ng-template>
-  <ng-template let-pro pTemplate="gridItem">
-    <div class="p-col-12 p-md-3">
-      <img [src]="pro.pic" />
+  <ng-template let-product pTemplate="listItem">
+    <div class="p-col-12">
+        <div class="product-list-item">
+            <img class="p-col-3" width="100" [src]="product.pic"/>
+            <div class="product-list-detail">
+                <div class="p-col-2" class="product-description">{{product.desc}}</div>
+            </div>
+            <div class="product-list-action">
+                <span class="p-col-2" class="product-price">{{product.price}}</span>
+            </div>
+        </div>
     </div>
   </ng-template>
   <ng-template pTemplate="paginatorleft" let-state>
-    <!--<button type="button" pButton icon="pi-refresh"></button>-->
   </ng-template>
   <ng-template pTemplate="paginatorright">
-    <!--<button type="button" pButton icon="pi-cloud-upload"></button>-->
   </ng-template>
-  <!--<ng-template let-item pTemplate="paginatordropdownitem">
-  </ng-template>-->
 </p-dataView>
 
 <router-outlet></router-outlet>

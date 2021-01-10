@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SelectItem } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -6,10 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public product: any = [];
-
-  constructor () { 
-    this.product = [
+  public products: any = [];
+  sortOptions: SelectItem[] | undefined;
+  sortOrder: number | undefined;
+  sortField: string | undefined;
+  
+  constructor() { 
+    this.products = [
       {
         "id": 1,
         "desc": "iphone",
@@ -43,6 +47,19 @@ export class AppComponent {
       }
     ]
   }
+
+  onSortChange(event: { value: any; }) {
+    let value = event.value;
+
+    if (value.indexOf('!') === 0) {
+        this.sortOrder = -1;
+        this.sortField = value.substring(1, value.length);
+    }
+    else {
+        this.sortOrder = 1;
+        this.sortField = value;
+    }
+}
 
 }
 
