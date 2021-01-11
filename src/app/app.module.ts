@@ -9,6 +9,7 @@ import {ButtonModule} from 'primeng/button';
 import {DataViewModule} from 'primeng/dataview';
 import {FocusTrapModule} from 'primeng/focustrap';
 import {InputTextModule} from 'primeng/inputtext';
+import {CardModule} from 'primeng/card';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {InputTextModule} from 'primeng/inputtext';
     ButtonModule,
     DataViewModule,
     FocusTrapModule,
-    InputTextModule
+    InputTextModule,
+    CardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
