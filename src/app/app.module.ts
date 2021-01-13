@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { DetailProductComponent } from './components/detail-product/detail-product.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
@@ -21,6 +22,8 @@ import {CardModule} from 'primeng/card';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
     ButtonModule,
     DataViewModule,
     FocusTrapModule,
