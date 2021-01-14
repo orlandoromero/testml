@@ -6,11 +6,11 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { DetailProductComponent } from './components/detail-product/detail-product.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
-import {ButtonModule} from 'primeng/button';
-import {DataViewModule} from 'primeng/dataview';
-import {FocusTrapModule} from 'primeng/focustrap';
-import {InputTextModule} from 'primeng/inputtext';
-import {CardModule} from 'primeng/card';
+import { ButtonModule } from 'primeng/button';
+import { DataViewModule } from 'primeng/dataview';
+import { FocusTrapModule } from 'primeng/focustrap';
+import { InputTextModule } from 'primeng/inputtext';
+import { CardModule} from 'primeng/card';
 
 
 @NgModule({
@@ -33,4 +33,4 @@ import {CardModule} from 'primeng/card';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+ export class AppModule { }
