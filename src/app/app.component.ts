@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { SelectItem } from 'primeng/api';
+import { HttpClient } from "@angular/common/http";
+import { ProductsService } from "../services/products.service";
 
 @Component({
   selector: 'app-root',
@@ -7,13 +8,14 @@ import { SelectItem } from 'primeng/api';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public products: any = [];
-  sortOptions: SelectItem[] | undefined;
-  sortOrder: number | undefined;
-  sortField: string | undefined;
+  public query = '' ;
   
-  constructor() {}
+  constructor(private http: HttpClient, private service: ProductsService) {}
 
+  cleanQuery() {
+    this.query = '' ;
+  }
+  
   ngOnInit(): void {
   }
 
