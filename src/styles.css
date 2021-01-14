@@ -7,36 +7,44 @@
     background-color: yellow;
     color: white;
     font-weight: 600;
+    height: 53px;
   }
 
-  .toolbar img {
+  .toolbar_img {
+    width:auto;
+    height:45px;
+    object-fit:contain;
     position: relative;
     margin: auto;
   }
 
-  .img-list {
-    max-width: 100%;
+  .button_search {
+    background-color: rgb(207, 207, 207);
   }
 
-  /* Responsive Styles */
-  @media screen and (max-width: 767px) {
+  .img-list {
+    max-width: 160px;
+    max-height: 160px;
+  }
 
-    .card-container > *:not(.circle-link) ,
-    .terminal {
-      width: 100%;
-    }
+  body {
+    background-color: rgb(207, 207, 207);
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+  }
 
-    .card:not(.highlight-card) {
-      height: 16px;
-      margin: 8px 0;
-    }
+  .p-price {
+    font-size: 1.5em;
+  }
 
-    .card.highlight-card span {
-      margin-left: 72px;
-    }
+  .p-title {
+    font-size: 0.8em;
+  }
 
-    svg#rocket-smoke {
-      right: 120px;
-      transform: rotate(-5deg);
-    }
+  figure.p-picture {
+      text-align: center;
+  }
+
+  figure.p-picture img {
+    max-width: 200px;
   }

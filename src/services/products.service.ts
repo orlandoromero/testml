@@ -11,7 +11,16 @@ export class ProductsService {
 
   constructor(private http: HttpClient) {}
 
-  getProducts(query: string): Observable<Products[]> {
-    return this.http.get<Products[]>('https://api.mercadolibre.com/sites/MLA/search?q=' + query);
+  getProducts(query: string): Observable<any> {
+    return this.http.get<any>('https://api.mercadolibre.com/sites/MLA/search?q=' + query);
+  }
+
+  getProductDetail(id: string): Observable<any> {
+    return this.http.get<any>('https://api.mercadolibre.com/items/' + id);
+  }
+
+  getProductDescription(id: string): Observable<any> {
+    return this.http.get<any>('https://api.mercadolibre.com/items/' + id + '/description');
   }
 }
+

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+import { ActivatedRoute} from '@angular/router';
+import { ProductsService } from "../../../services/products.service";
+import { Products } from 'src/entities/Products';
 
 @Component({
   selector: 'app-search-results',
@@ -6,45 +10,60 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-results.component.css']
 })
 export class SearchResultsComponent implements OnInit {
-  public products: any = [];
+  public query = this.route.snapshot.paramMap.get('query');
+  public productList: any = [];
+  public categoryList: any = [];
+  public id : string | undefined;
   
-  constructor() {
-    this.products = [
-      {
-        "id": 1,
-        "desc": "iphone",
-        "price": 1800,
-        "pic": "https://images.dog.ceo/breeds/pekinese/n02086079_9316.jpg"
-      },{
-        "id": 2,
-        "desc": "iphone XS",
-        "price": 1000,
-        "pic": "https://images.dog.ceo/breeds/pekinese/n02086079_9316.jpg"
-      },{
-        "id": 3,
-        "desc": "iphone 12",
-        "price": 2000,
-        "pic": "https://images.dog.ceo/breeds/pekinese/n02086079_9316.jpg"
-      },{
-        "id": 4,
-        "desc": "Samsung 20",
-        "price": 1900,
-        "pic": "https://images.dog.ceo/breeds/pekinese/n02086079_9316.jpg"
-      },{
-        "id": 5,
-        "desc": "Samsung Note",
-        "price": 2300,
-        "pic": "https://images.dog.ceo/breeds/pekinese/n02086079_9316.jpg"
-      },{
-        "id": 6,
-        "desc": "Xiaomi",
-        "price": 1000,
-        "pic": "https://images.dog.ceo/breeds/pekinese/n02086079_9316.jpg"
-      }
-    ]
+  constructor(private route: ActivatedRoute, private http: HttpClient, private service: ProductsService) {
+    // console.log(this.route.snapshot.paramMap.get('query'));
+    this.productList = [{
+      author: {
+        name: '',
+        lastname: ''
+      },
+      categories: [],
+      items: []
+      }];
+  }
+  
+  getFilteredProducts(query: any) {
+    this.service.getProducts(query).subscribe((products: any) => {
+      const items : any = [];
+      const categories : any = [];
+      //console.log("products: ", products);
+        products.results.forEach((element: Products) => {
+          let item = {
+            id: element.id,
+            title: element.title,
+            price: {
+              currency: element.currency_id,
+              amount: element.price,
+              decimals: '',
+            },
+            picture: element.thumbnail,
+            condition: element.condition,
+            free_shiping: element.free_shipping,
+          };
+          items.push(item);
+          let category = element.category_id;
+          categories.push(category);
+        });
+        //console.log("Items: ", items);
+        this.productList = [{
+          author: {
+            name: "Orlando",
+            lastname: "Romero"
+          },
+          categories: categories,
+          items: items
+          }];
+          console.log("ProductsList: ", this.productList);
+      });
   }
 
   ngOnInit(): void {
+    this.getFilteredProducts(this.query);
   }
 
 }
