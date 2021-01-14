@@ -8,14 +8,6 @@ export class Products {
     condition: any;
     free_shipping: any;
     thumbnail: any;
-    
-    /* id: String | undefined;
-    title: String | undefined;
-    currency_id: String | undefined;
-    amount: Number | undefined;
-    thumbnail: String | undefined;
-    condition: String | undefined;
-    free_shipping: Boolean | undefined;
-    category_id: String | undefined;
-    price: Number | undefined;*/
+    plain_text: any;
+    sold_quantity: any;
 }
