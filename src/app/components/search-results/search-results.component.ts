@@ -12,11 +12,9 @@ import { Products } from 'src/entities/Products';
 export class SearchResultsComponent implements OnInit {
   public query = this.route.snapshot.paramMap.get('query');
   public productList: any = [];
-  public categoryList: any = [];
   public id : string | undefined;
   
   constructor(private route: ActivatedRoute, private http: HttpClient, private service: ProductsService) {
-    // console.log(this.route.snapshot.paramMap.get('query'));
     this.productList = [{
       author: {
         name: '',
@@ -26,12 +24,15 @@ export class SearchResultsComponent implements OnInit {
       items: []
       }];
   }
+
+  ngOnInit(): void {
+    this.getFilteredProducts(this.query);
+  }
   
   getFilteredProducts(query: any) {
     this.service.getProducts(query).subscribe((products: any) => {
       const items : any = [];
       const categories : any = [];
-      //console.log("products: ", products);
         products.results.forEach((element: Products) => {
           let item = {
             id: element.id,
@@ -49,7 +50,6 @@ export class SearchResultsComponent implements OnInit {
           let category = element.category_id;
           categories.push(category);
         });
-        //console.log("Items: ", items);
         this.productList = [{
           author: {
             name: "Orlando",
@@ -61,9 +61,4 @@ export class SearchResultsComponent implements OnInit {
           console.log("ProductsList: ", this.productList);
       });
   }
-
-  ngOnInit(): void {
-    this.getFilteredProducts(this.query);
-  }
-
 }

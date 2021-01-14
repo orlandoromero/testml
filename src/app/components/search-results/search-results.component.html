@@ -1,21 +1,19 @@
-<p-grid>
-  <div class="p-col-8 p-offset-2">
-    <p-dataView [value]="productList[0].items" [paginator]="true" [rows]="4">
-        <ng-template let-product pTemplate="listItem">
-          <div class="p-col-4">
-            <figure class="p-picture">
-              <img class="img-list" [src]="product.picture" [routerLink]="['/detail-product', product.id]"/>
-            </figure>
-          </div>
-          <div class="p-col-8">
-            <p class="p-price">$ {{product.price.amount}}</p>
-            <p class="p-title">{{product.title}}</p>
-          </div>
-        </ng-template>
-      <ng-template pTemplate="paginatorleft" let-state>
+<div class="p-col-8 p-offset-2">
+  <p-dataView [value]="productList[0].items" [paginator]="true" [rows]="4">
+      <ng-template let-product pTemplate="listItem">
+        <div class="p-col-4">
+          <figure class="p-picture">
+            <img class="img-list" [src]="product.picture" [routerLink]="['/detail-product', product.id]"/>
+          </figure>
+        </div>
+        <div class="p-col-8">
+          <p class="p-price">$ {{product.price.amount}}</p>
+          <p class="p-title">{{product.title}}</p>
+        </div>
       </ng-template>
-      <ng-template pTemplate="paginatorright">
-      </ng-template>
-    </p-dataView>
-  </div>
-</p-grid>
+    <ng-template pTemplate="paginatorleft" let-state>
+    </ng-template>
+    <ng-template pTemplate="paginatorright">
+    </ng-template>
+  </p-dataView>
+</div>
