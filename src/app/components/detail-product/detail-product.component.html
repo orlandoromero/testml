@@ -1,1 +1,21 @@
-<p>detail-product works!</p>
+<div class="p-col-8 p-offset-2 background">
+    <div class="p-grid">
+        <div class="p-col-8">
+            <figure>
+                    <img class="img-detail" src="{{picture}}" name="picture" ngDefaultControl [(ngModel)]="picture"/>
+            </figure>
+        </div>
+        <div class="p-col-4">
+            <p name="title" ngDefaultControl [(ngModel)]="title" class="p-title-detail">{{title}}</p>
+            <p name="title" ngDefaultControl [(ngModel)]="price" class="p-price">$ {{price}}</p>
+            <p-button label="Comprar" styleClass="buy-button"></p-button>
+        </div>
+    </div>
+    <div class="p-grid">
+        <div class="p-col-8">
+            <p class="p-title-desc">Descripción del producto</p>
+            <p name="description" ngDefaultControl [(ngModel)]="description" class="p-description">{{description}}</p>
+        </div>
+        <div class="p-col-4"></div>
+    </div>
+</div>
