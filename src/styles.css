@@ -20,11 +20,23 @@
 
   .button_search {
     background-color: rgb(207, 207, 207);
+    border: none;
+    margin-right: 5px !important;
   }
 
   .img-list {
     max-width: 160px;
     max-height: 160px;
+    margin-right: 5px !important;
+  }
+
+  .img-detail {
+    width: 100%;
+  }
+
+  .background {
+    background-color: white;
+    margin-top: 8px !important;
   }
 
   body {
@@ -37,8 +49,31 @@
     font-size: 1.5em;
   }
 
+  .p-decimals {
+    font-size: 0.6em;
+    position: absolute;
+    margin-top: unset;
+  }  
+
   .p-title {
     font-size: 0.8em;
+  }
+
+  .p-title-detail {
+    font-size: 1.2em;
+  }
+
+  .p-description {
+    font-size: 0.8em;
+    color: grey;
+  }
+
+ .p-title-desc {
+   font-size: 1.5em;
+ }
+
+  .buy-button {
+    width: 100% !important;
   }
 
   figure.p-picture {

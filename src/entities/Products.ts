@@ -10,4 +10,5 @@ export class Products {
     thumbnail: any;
     plain_text: any;
     sold_quantity: any;
+    shipping: any;
 }
