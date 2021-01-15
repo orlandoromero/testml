@@ -11,11 +11,11 @@ import { Products } from 'src/entities/Products';
 })
 export class SearchResultsComponent implements OnInit {
   public query = this.route.snapshot.paramMap.get('query');
+  public state_name : string | undefined;
   public id : string | undefined;
   public productList: any = [];
-  public decimalsLenght: any;
-  public decimals = '';
-  public amount = '';
+  public decimals : any;
+  public amount: any;
   
   constructor(private route: ActivatedRoute, private http: HttpClient, private service: ProductsService) {
     this.productList = [{
@@ -38,18 +38,18 @@ export class SearchResultsComponent implements OnInit {
       const items : any = [];
       const categories : any = [];
       products.results.forEach((element: Products) => {
+        this.state_name = element.address.state_name;
         price = element.price.toString();
         price = price.split(".", 3);
-        this.amount = price[0];
-        price[1] != undefined ? this.decimals = price[1] : this.decimals = "0";
-        this.decimalsLenght = this.decimals.length;
+        this.amount = parseInt(price[0]);
+        price[1] != undefined ? this.decimals = parseInt(price[1]) : this.decimals = 0;
         let item = {
           id: element.id,
           title: element.title,
           price: {
             currency: element.currency_id,
-            amount: parseInt(this.amount),
-            decimals: parseInt(this.decimals),
+            amount: this.amount,
+            decimals: this.decimals,
           },
           picture: element.thumbnail,
           condition: element.condition,
@@ -67,7 +67,7 @@ export class SearchResultsComponent implements OnInit {
         categories: categories,
         items: items
       }];
-      console.log("ProductsList: ", this.productList);
+      console.log("ProductList: ", this.productList);
     });
   }
 }

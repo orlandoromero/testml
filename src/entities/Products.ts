@@ -11,4 +11,6 @@ export class Products {
     plain_text: any;
     sold_quantity: any;
     shipping: any;
+    address: any;
+    state_name : any;
 }

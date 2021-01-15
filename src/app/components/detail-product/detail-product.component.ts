@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute} from '@angular/router';
 import { HttpClient } from "@angular/common/http";
+import { ActivatedRoute} from '@angular/router';
 import { ProductsService } from "../../../services/products.service";
-import { stringify } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-detail-product',
@@ -12,11 +11,10 @@ import { stringify } from '@angular/compiler/src/util';
 export class DetailProductComponent implements OnInit {
   public id = this.route.snapshot.paramMap.get('id');
   public productInfo: any = [];
-  public decimalsLenght: any;
   public description = '';
-  public decimals = '';
+  public decimals: any;
   public picture = '';
-  public amount = '';
+  public amount : any;
   public title = '';
 
   constructor(private route: ActivatedRoute, private http: HttpClient, private service: ProductsService) {
@@ -34,9 +32,8 @@ export class DetailProductComponent implements OnInit {
       this.title = details.title;
       price = price.toString();
       price = price.split(".", 3);
-      this.amount = price[0];
-      price[1] != undefined ? this.decimals = price[1] : this.decimals = "00";
-      this.decimalsLenght = this.decimals.length;
+      this.amount = parseInt(price[0]);
+      price[1] != undefined ? this.decimals = parseInt(price[1]) : this.decimals = 0;
       this.productInfo = [{
         author: {
           name: "Orlando",
@@ -47,8 +44,8 @@ export class DetailProductComponent implements OnInit {
           title: details.title,
           price: {
             currency: details.currency_id,
-            amount: parseInt(this.amount),
-            decimals: parseInt(this.decimals),
+            amount: this.amount,
+            decimals: this.decimals,
           },
           picture: details.thumbnail,
           condition: details.condition,
