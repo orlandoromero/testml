@@ -49,6 +49,11 @@
     font-size: 1.5em;
   }
 
+  .p-price_detail {
+    font-size: 1.5em;
+    margin-top: -10px;
+  }
+
   .p-decimals {
     font-size: 0.6em;
     position: absolute;
@@ -61,6 +66,7 @@
 
   .p-title-detail {
     font-size: 1.2em;
+    margin-top: -10px;
   }
 
   .p-description {
@@ -76,6 +82,10 @@
   font-size: 0.6em;
   color: grey;
   margin-top: 40px;
+ }
+
+ .p-cond_sold {
+  font-size: 0.8em;
  }
 
   .buy-button {

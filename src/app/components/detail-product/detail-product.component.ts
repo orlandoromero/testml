@@ -11,7 +11,9 @@ import { ProductsService } from "../../../services/products.service";
 export class DetailProductComponent implements OnInit {
   public id = this.route.snapshot.paramMap.get('id');
   public productInfo: any = [];
+  public sold_quantity = '';
   public description = '';
+  public condition = '';
   public decimals: any;
   public picture = '';
   public amount : any;
@@ -27,13 +29,16 @@ export class DetailProductComponent implements OnInit {
 
   getDetail(id: any) {
     this.service.getProductDetail(id).subscribe((details: any) => {
-      let price: any = details.price;
+      this.sold_quantity = details.sold_quantity;
+      this.condition = details.condition;
       this.picture = details.thumbnail;
       this.title = details.title;
+      let price: any = details.price;
       price = price.toString();
       price = price.split(".", 3);
       this.amount = parseInt(price[0]);
       price[1] != undefined ? this.decimals = parseInt(price[1]) : this.decimals = 0;
+      this.condition === 'new' ? this.condition = 'Nuevo' : this.condition = 'Usado';
       this.productInfo = [{
         author: {
           name: "Orlando",

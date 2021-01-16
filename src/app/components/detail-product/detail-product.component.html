@@ -6,9 +6,10 @@
             </figure>
         </div>
         <div class="p-col-4">
+            <p class="p-cond_sold" ngDefaultControl>{{condition}} - {{sold_quantity}} vendidos</p>
             <p name="title" ngDefaultControl [(ngModel)]="title" class="p-title-detail">{{title}}</p>
-            <p *ngIf="decimals > 9" name="amount" ngDefaultControl [(ngModel)]="amount" class="p-price">$ {{amount | number}}<span name="decimals" ngDefaultControl [(ngModel)]="decimals" class="p-decimals">{{decimals}}</span></p>
-            <p *ngIf="decimals < 10" name="amount" ngDefaultControl [(ngModel)]="amount" class="p-price">$ {{amount | number}}<span name="decimals" ngDefaultControl [(ngModel)]="decimals" class="p-decimals">0{{decimals}}</span></p>
+            <p *ngIf="decimals > 9" name="amount" ngDefaultControl [(ngModel)]="amount" class="p-price_detail">$ {{amount | number}}<span name="decimals" ngDefaultControl [(ngModel)]="decimals" class="p-decimals">{{decimals}}</span></p>
+            <p *ngIf="decimals < 10" name="amount" ngDefaultControl [(ngModel)]="amount" class="p-price_detail">$ {{amount | number}}<span name="decimals" ngDefaultControl [(ngModel)]="decimals" class="p-decimals">0{{decimals}}</span></p>
             <p-button label="Comprar" styleClass="buy-button"></p-button>
         </div>
     </div>
