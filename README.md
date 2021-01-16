@@ -1,27 +1,23 @@
-# Testml
+# Test Práctico - Frontend 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
+El nombre del proyecto es `Testml`, ha sido desarrollado con los frameworks [Angular] `versión 11.0.5` y [PrimeNG].
 
-## Development server
+## Instrucciones para clonar el proyecto en funcionamiento en máquina local para propósitos de desarrollo y pruebas:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* Paso #1: Clonar el proyecto.
+    - Url del proyecto en [GitHub]: `https://github.com/orlandoromero/testml`.
 
-## Code scaffolding
+* Paso #2: Instalación de [Docker].
+    - Url para descargar [Docker] dependiendo del sistema operativo que se utilice: `https://docs.docker.com/get-docker/`.
+    - Instalar [Docker] (Los pasos a seguir dependen del sistema operativo que se utilice).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* Paso #3: Ejecución del proyecto:
+  Una vez instalado [Docker], correr los siguientes comandos en el mismo para la ejecución del proyecto:
+    - `docker build -t meli-test:0.0.1 .`.
+    - `docker run -p 4200:4200 meli-test:0.0.1`.
+  Abrir el navegador e ir a la ruta `http://localhost:4200/`.
 
-## Build
+## Comentarios:
+    De antemano agradezco la oprotunidad de participar en este proceso, espero que la solución desarrollada para este test sea de su agrado y podamos seguir avanzando.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# Autor: Orlando Romero.
