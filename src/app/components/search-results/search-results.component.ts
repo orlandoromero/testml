@@ -10,7 +10,6 @@ import { Products } from 'src/entities/Products';
   styleUrls: ['./search-results.component.css']
 })
 export class SearchResultsComponent implements OnInit {
-  public query = this.route.snapshot.paramMap.get('query');
   public state_name : string | undefined;
   public id : string | undefined;
   public productList: any = [];
@@ -29,7 +28,9 @@ export class SearchResultsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getFilteredProducts(this.query);
+    this.route.queryParams.subscribe((params: any) => {
+      this.getFilteredProducts(params.search);
+    });
   }
   
   getFilteredProducts(query: any) {

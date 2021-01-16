@@ -6,7 +6,7 @@ import { DetailProductComponent } from './components/detail-product/detail-produ
 
 const routes: Routes = [
   { path: './', component: AppComponent},
-  { path: 'items?search=/:query', component: SearchResultsComponent},
+  { path: 'items', component: SearchResultsComponent},
   { path: 'detail-product/:id', component: DetailProductComponent}
 ];
 

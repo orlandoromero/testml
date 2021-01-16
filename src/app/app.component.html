@@ -9,9 +9,9 @@
     <div class="p-col-5">
       <div class="p-text-center">
           <div class="p-inputgroup">
-          <input type="text" pInputText placeholder="Nunca dejes de buscar" [(ngModel)]="query">
+          <input type="text" pInputText placeholder="Nunca dejes de buscar" [(ngModel)]="query" (keyup.enter)="onSearch()">
           <button *ngIf=" query == ''" type="button" class="button_search" pButton pRipple icon="pi pi-search"></button>
-          <button *ngIf=" query != ''" type="button" class="button_search" pButton pRipple icon="pi pi-search"[routerLink]="['/items?search=', query]"></button>
+          <button *ngIf=" query != ''" type="button" class="button_search" pButton pRipple icon="pi pi-search" (click)="onSearch()"></button>
         </div>
       </div>
     </div>
